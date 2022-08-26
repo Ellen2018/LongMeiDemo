@@ -13,20 +13,20 @@ class ChildrenRecyclerView(context: Context, attrs: AttributeSet?) : RecyclerVie
     override fun dispatchTouchEvent(e: MotionEvent): Boolean {
         if(e.action == MotionEvent.ACTION_DOWN){
             //需要move
-            isFatherNeedMove(true)
+            isNeedMove(true)
         }
         if(e.action == MotionEvent.ACTION_UP){
             //不需要move
-            isFatherNeedMove(false)
+            isNeedMove(false)
         }
         if(e.action == MotionEvent.ACTION_CANCEL){
             //不需要move
-            isFatherNeedMove(false)
+            isNeedMove(false)
         }
         return super.dispatchTouchEvent(e)
     }
 
-    private fun isFatherNeedMove(isNeedMove: Boolean){
+    private fun isNeedMove(isNeedMove: Boolean){
         if(fatherRecyclerView == null) {
             var view = parent
             while (view !is FatherRecyclerView) {
