@@ -11,9 +11,7 @@ class FatherRecyclerView(context: Context, attrs: AttributeSet?) : RecyclerView(
 
     //外部拦截法
     override fun onInterceptTouchEvent(e: MotionEvent): Boolean {
-        if(isNeedMove){
-            return super.onInterceptTouchEvent(e)
-        }else {
+        if(!isNeedMove){
             if (e.action == MotionEvent.ACTION_MOVE) {
                 return false
             }
